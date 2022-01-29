@@ -5,14 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Lyrics Search</title>
 </head>
 <body>
-    <div class="section">
-        <video autoplay loop muted>
-            <source src="/images/crowd.mp4" type="video/mp4">
+    <section class="search">
+        <h1>Lyrics Search</h1>
+        <div class="input-search">
+            <input type="search">
+            <i class="fas fa-search"></i>
+        </div>
+        <video autoplay loop muted poster="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHw%3D&w=1000&q=80">
+            <source src="images/crowd.mp4" type="video/mp4">
         </video>
-    </div>
+    </section>
+    <section class="list">
+        <!--
+            This part should be rendered with JS.
+            Max 10 items on one page.
+        -->
+        <div class="lyrics"></div>
+        <div class="lyrics"></div>
+        <div class="lyrics"></div>
+        <div class="lyrics"></div>
+        <div class="lyrics"></div>
+    </section>
 </body>
 <script src="main.js"></script>
 </html>
