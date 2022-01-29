@@ -50,6 +50,25 @@ video {
     left: 0;
     height: 100%;
 }
+
+.search-result {
+    width: 100%;
+    height: 700px;
+}
+
+.lyrics {
+    margin: 20px;
+    border-bottom: dotted 1px rebeccapurple;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.get-lyrics {
+    padding: 0 20px;
+    border-radius: 20px;
+    height: 40px;
+}
 /* Tablet */
 
 /* Desktop */
