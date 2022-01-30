@@ -10,65 +10,131 @@
 }
 
 /* Mobile first approach */
-.search {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.video {
+    height: 100vh;
+}
+
+.video video {
+    height: 100%;
+    /* width: 100vw; */
     overflow: hidden;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-family: 'Monoton', cursive;
-    color: white;
-    font-weight:lighter;
+.search {
+    position: absolute;
     z-index: 1;
+    text-align: center;
 }
 
-.input-search {
-    z-index: 1;
+/*
+* apply this class when there is a search result
+*/
+.search-top {
+    top: 20px;
 }
-.input-search input {
-    padding: 5px 0;
+
+.search h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    color: #fff;
+    margin-bottom: 30px;
+    animation: pulsate 2.5s infinite alternate;
+}
+
+.search-top h1 {
+    animation: none;
+}
+
+input {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 20px;
     text-align: center;
-}
-
-i {
-    font-size: 1.5rem;
-}
-
-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    padding: 5px 0px;
+    border-radius: 10px;
 }
 
 .search-result {
+    position: absolute;
+    height: 715px;
+    top: 180px;
+    background-color: white;
+    opacity: 0.9;
     width: 100%;
-    height: 700px;
+    /* display: block; when get search results */
+    display: none;
 }
 
 .lyrics {
-    margin: 20px;
+    margin: 20px 20px 40px 20px;
     border-bottom: dotted 1px rebeccapurple;
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
+    width: 400px;
+    margin: 0 auto;
 }
 
 .get-lyrics {
     padding: 0 20px;
     border-radius: 20px;
-    height: 40px;
+    height: 30px;
+    min-width: 105px;
 }
-/* Tablet */
+
+.get-lyrics:hover {
+    background-color: blue;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+}
+.singer {
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+/* Neon effect */
+@keyframes pulsate {
+    100% {
+        /* Larger blur radius */
+        text-shadow:
+            0 0 4px blue,
+            0 0 11px blue,
+            0 0 19px blue,
+            0 0 40px rgb(150, 0, 255),
+            0 0 80px rgb(170, 0, 235),
+            0 0 90px rgb(200, 0, 200),
+            0 0 100px rgb(235, 0, 170),
+            0 0 150px rgb(255, 0, 50);
+    }
+
+    0% {
+        /* Smaller blur radius */
+        text-shadow:
+            0 0 2px red,
+            0 0 4px red,
+            0 0 6px red,
+            0 0 10px #0fa,
+            0 0 45px #0fa,
+            0 0 55px #0fa,
+            0 0 70px #0fa,
+            0 0 80px #0fa;
+    }
+}
 
 /* Desktop */
+@media (min-width: 821px) {
+    .lyrics {
+        width: 700px;
+        /* margin: 0 auto; */
+    }
+}
