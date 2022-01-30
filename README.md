@@ -9,6 +9,12 @@
 ```
 ### About
 ...to be filled...
+
+### About API
+  Read this >> [documentaion about LYRICSOVH](https://lyricsovh.docs.apiary.io/)
+
+  Or ask team for help in [slack channel](https://seytech.slack.com/archives/C02V7P6018U).
+
 ### Requirenments
   1. Use ES6 notations for functions and variables.
   2. Use arrow style function.
