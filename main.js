@@ -14,18 +14,19 @@ const showResult = (data) => {
         searchSection.classList.add('search-top');
         searchResult.style.display = 'block';
     }
-    // data.forEach(lyrics => {
-    //     searchResult.innerHTML = `
-    //         <div class="lyrics">
-    //             <div class="about">
-    //                 <div class="singer">Shade</div>
-    //                 -
-    //                 <p class="title">Smooth operator.</p>
-    //             </div>
-    //             <button class="get-lyrics">Get Lyrics</button>
-    //         </div>
-    //     `
-    // })
+    data.data.forEach(lyrics => {
+        console.log(lyrics.title)
+        searchResult.innerHTML += `
+            <div class="lyrics">
+                <div class="about">
+                    <div class="singer">${lyrics.artist.name}</div>
+                    -
+                    <p class="title">${lyrics.title}</p>
+                </div>
+                <button class="get-lyrics">Get Lyrics</button>
+            </div>
+        `
+    })
 }
 
 const showNotification = (msg) => {
