@@ -15,16 +15,30 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url("images/static.jpeg") no-repeat;
+    background-size: cover;
 }
 
 .video {
     height: 100vh;
 }
 
-.video video {
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+  }
+
+/* .video video {
     height: 100%;
     overflow: hidden;
-}
+} */
 
 .search {
     position: absolute;
@@ -151,5 +165,10 @@ input {
     .lyrics {
         width: 700px;
         /* margin: 0 auto; */
+    }
+
+    #background-video {
+        display: block;
+        height: fit-content;
     }
 }
