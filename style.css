@@ -23,7 +23,6 @@ body {
 
 .video video {
     height: 100%;
-    /* width: 100vw; */
     overflow: hidden;
 }
 
@@ -45,7 +44,7 @@ body {
     font-size: 2.5rem;
     font-weight: lighter;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     animation: pulsate 2.5s infinite alternate;
 }
 
@@ -59,6 +58,22 @@ input {
     text-align: center;
     padding: 5px 0px;
     border-radius: 10px;
+}
+
+.notification {
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    background-color: palevioletred;
+    color: white;
+    padding: 5px;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 20px;
+    border-radius: 20px;
+    opacity: 0.8;
+    width: 100%;
+    margin: auto;
+    display: none;
 }
 
 .search-result {
