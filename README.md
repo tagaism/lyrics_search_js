@@ -10,15 +10,17 @@
 ### About
 ...to be filled...
 
+### Requirenments
+  0. Read [this doc](https://docs.google.com/spreadsheets/d/1C16rjeyxaCjVToeryv3waL0ITYyM9zePR9v6smIq0AY/edit?pli=1#gid=52519475) before starting to work
+  1. Use ES6 notations for functions and variables.
+  2. Use arrow style function.
+  3. Use higher-order functions for arrays and objects.
+
 ### About API
   Read this >> [documentaion about LYRICSOVH](https://lyricsovh.docs.apiary.io/)
 
   Or ask team for help in [slack channel](https://seytech.slack.com/archives/C02V7P6018U).
 
-### Requirenments
-  1. Use ES6 notations for functions and variables.
-  2. Use arrow style function.
-  3. Use higher-order functions for arrays and objects.
 ### How to create pull request (PR).
   1. Pull latest version of main:
       ```
