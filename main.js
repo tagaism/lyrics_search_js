@@ -2,20 +2,20 @@ const userInput = document.querySelector("#user-input");
 const searchSection = document.querySelector(".search");
 const searchResult = document.querySelector(".search-result");
 const notificationSection = document.querySelector(".notification");
-
 /*
  * Parse data and display them in searchResult
  */
 const showResult = (data) => {
-  console.log(data);
   if (data.total === 0) {
     showNotification("Try another one or you can write it )))");
   } else {
     searchSection.classList.add("search-top");
     searchResult.style.display = "block";
   }
+
+  searchResult.innerHTML = "";
+
   data.data.forEach((lyrics) => {
-    console.log(lyrics.title);
     searchResult.innerHTML += `
             <div class="lyrics">
                 <div class="about">
@@ -26,11 +26,37 @@ const showResult = (data) => {
                 <audio controls>
                     <source src="${lyrics.preview}" type="audio/mpeg">
                 </audio>
-                <button class="get-lyrics">Get Lyrics</button>
+                <button class="get-lyrics" data-sourse="${lyrics.preview}"  data-artist="${lyrics.artist.name}" data-songtitle="${lyrics.title}" >Get Lyrics</button>
             </div>
         `;
   });
 };
+
+searchResult.addEventListener("click", (event) => {
+  const targetElement = event.target;
+
+  if (targetElement.tagName === "BUTTON") {
+    searchResult.innerHTML = "";
+    const artist = targetElement.getAttribute("data-artist");
+    const title = targetElement.getAttribute("data-songtitle");
+    const audioSrc = targetElement.getAttribute("data-sourse");
+
+    fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
+        if(lyrics === undefined){
+          alert('Try another one')
+        }
+        searchResult.innerHTML = `
+                  <h1><strong>${artist}</strong> - ${title}</h1>
+                  <audio controls>
+                        <source src="${audioSrc}" type="audio/mpeg">
+                  </audio>
+                  <p>${lyrics}</p>`;
+      });
+  }
+});
 
 const showNotification = (msg) => {
   notificationSection.innerText = msg;
