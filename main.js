@@ -14,6 +14,7 @@ const showResult = (data) => {
         searchSection.classList.add('search-top');
         searchResult.style.display = 'block';
     }
+    searchResult.innerHTML = '';
     data.data.forEach(lyrics => {
         console.log(lyrics.title)
         searchResult.innerHTML += `
