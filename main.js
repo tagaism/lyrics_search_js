@@ -7,7 +7,6 @@ const notificationSection = document.querySelector(".notification");
  * Parse data and display them in searchResult
  */
 const showResult = (data) => {
-  console.log(data);
   if (data.total === 0) {
     showNotification("Try another one or you can write it )))");
   } else {
@@ -15,7 +14,6 @@ const showResult = (data) => {
     searchResult.style.display = "block";
   }
   data.data.forEach((lyrics) => {
-    console.log(lyrics.title);
     searchResult.innerHTML += `
             <div class="lyrics">
                 <div class="about">
