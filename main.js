@@ -1,3 +1,6 @@
+//importing onclick func
+import { onClick } from "./onClick.js";
+
 const userInput = document.querySelector("#user-input");
 const searchSection = document.querySelector(".search");
 const searchResult = document.querySelector(".search-result");
@@ -8,6 +11,7 @@ const notificationSection = document.querySelector(".notification");
  */
 const showResult = (data) => {
   console.log(data);
+  // onClick();
   if (data.total === 0) {
     showNotification("Try another one or you can write it )))");
   } else {
@@ -15,7 +19,7 @@ const showResult = (data) => {
     searchResult.style.display = "block";
   }
   data.data.forEach((lyrics) => {
-    console.log(lyrics.title);
+    console.log(lyrics.id);
     searchResult.innerHTML += `
             <div class="lyrics">
                 <div class="about">
@@ -26,7 +30,7 @@ const showResult = (data) => {
                 <audio controls>
                     <source src="${lyrics.preview}" type="audio/mpeg">
                 </audio>
-                <button class="get-lyrics">Get Lyrics</button>
+                <button id=${lyrics.id} class="get-lyrics">Get Lyrics</button>
             </div>
         `;
   });
@@ -61,6 +65,13 @@ userInput.addEventListener("keyup", (event) => {
 
     fetch(`https://api.lyrics.ovh/suggest/${searchStr}`)
       .then((response) => response.json())
-      .then((data) => showResult(data));
+      .then((data) => {
+        showResult(data);
+        //adding eventlistener for button
+        const btn = document.querySelectorAll(".get-lyrics");
+        btn.forEach((item) =>
+          item.addEventListener("click", () => onClick(data.data, item.id))
+        );
+      });
   }
 });
