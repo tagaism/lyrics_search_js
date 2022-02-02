@@ -44,9 +44,10 @@ searchResult.addEventListener("click", (event) => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
       .then((data) => {
-        
+
         if(data.lyrics == undefined){
-          alert('Lyrics does not exist. Try another one...')
+          // alert('Lyrics does not exist. Try another one...')
+          searchResult.innerHTML = `<h3>Lyrics does not exist. Please try another one...</h3>`
         }else{ 
           const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
 
