@@ -1,40 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 /* :root {
     main css variables
 } */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Mobile first approach */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: url("images/static.jpeg") no-repeat;
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("images/static.jpeg") no-repeat;
+  background-size: cover;
 }
 
 .video {
-    height: 100vh;
+  height: 100vh;
 }
 
 #background-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: none;
-    z-index: -1;
-  }
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  z-index: -1;
+}
 
 /* .video video {
     height: 100%;
@@ -42,135 +42,157 @@ body {
 } */
 
 .search {
-    position: absolute;
-    /* z-index: 1; */
-    text-align: center;
+  position: absolute;
+  /* z-index: 1; */
+  text-align: center;
 }
 
 /*
 * apply this class when there is a search result
 */
 .search-top {
-    top: 20px;
+  top: 20px;
 }
 
 .search h1 {
-    font-family: 'Monoton', cursive;
-    font-size: 2.5rem;
-    font-weight: lighter;
-    color: #fff;
-    margin-bottom: 60px;
-    animation: pulsate 2.5s infinite alternate;
+  font-family: "Monoton", cursive;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  color: #fff;
+  margin-bottom: 60px;
+  animation: pulsate 2.5s infinite alternate;
 }
 
 .search-top h1 {
-    animation: none;
+  animation: none;
 }
 
 input {
-    font-family: Verdana, Tahoma, sans-serif;
-    font-size: 20px;
-    text-align: center;
-    padding: 5px 0px;
-    border-radius: 10px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px 0px;
+  border-radius: 10px;
 }
 
 .notification {
-    position: absolute;
-    z-index: 1;
-    top: 60px;
-    background-color: palevioletred;
-    color: white;
-    padding: 5px;
-    font-family: Verdana, Tahoma, sans-serif;
-    font-size: 20px;
-    border-radius: 20px;
-    opacity: 0.8;
-    width: 100%;
-    margin: auto;
-    display: none;
+  position: absolute;
+  z-index: 1;
+  top: 60px;
+  background-color: palevioletred;
+  color: white;
+  padding: 5px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 20px;
+  border-radius: 20px;
+  opacity: 0.8;
+  width: 100%;
+  margin: auto;
+  display: none;
 }
 
 .search-result {
-    position: absolute;
-    /* height: 785px; */
-    top: 180px;
-    background-color: white;
-    opacity: 0.9;
-    width: 100%;
-    text-align: center;
-    /* display: block; when get search results */
-    display: none;
+  position: absolute;
+  /* height: 785px; */
+  top: 180px;
+  background-color: white;
+  opacity: 0.9;
+  width: 100%;
+  text-align: center;
+  /* display: block; when get search results */
+  display: none;
 }
 
 .lyrics {
-    margin: 20px 20px 40px 20px;
-    border-bottom: dotted 1px rebeccapurple;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    width: 400px;
-    margin: 0 auto;
+  margin: 20px 20px 40px 20px;
+  border-bottom: dotted 1px rebeccapurple;
+  /* display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  width: 400px;
+  margin: 0 auto; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  align-items: center;
+  padding: 10px 0;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .get-lyrics {
-    padding: 0 20px;
-    border-radius: 20px;
-    height: 30px;
-    min-width: 105px;
+  padding: 0 16px;
+  border-radius: 20px;
+  height: 30px;
+  min-width: 105px;
 }
 
 .get-lyrics:hover {
-    background-color: blue;
+  background-color: rgb(3, 121, 81);
+  color: #fff;
 }
 
 .about {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .singer {
-    font-size: 1.2rem;
-    font-weight: bolder;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+/* to not show button when not needed */
+.notVisible {
+  display: none;
+}
+/* buttons styling */
+#next,
+#prev {
+  font-size: 1.2rem;
+  padding: 5px 10px;
+  border: rgb(3, 121, 81) solid 1px;
+  border-radius: 7px;
+  background-color: rgb(3, 121, 81);
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#next:hover {
+  background-color: #fff;
+  color: rgb(3, 121, 81);
+}
+#prev:hover {
+  background-color: #fff;
+  color: rgb(3, 121, 81);
 }
 
 /* Neon effect */
 @keyframes pulsate {
-    100% {
-        /* Larger blur radius */
-        text-shadow:
-            0 0 4px blue,
-            0 0 11px blue,
-            0 0 19px blue,
-            0 0 40px rgb(150, 0, 255),
-            0 0 80px rgb(170, 0, 235),
-            0 0 90px rgb(200, 0, 200),
-            0 0 100px rgb(235, 0, 170),
-            0 0 150px rgb(255, 0, 50);
-    }
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px blue, 0 0 11px blue, 0 0 19px blue,
+      0 0 40px rgb(150, 0, 255), 0 0 80px rgb(170, 0, 235),
+      0 0 90px rgb(200, 0, 200), 0 0 100px rgb(235, 0, 170),
+      0 0 150px rgb(255, 0, 50);
+  }
 
-    0% {
-        /* Smaller blur radius */
-        text-shadow:
-            0 0 2px red,
-            0 0 4px red,
-            0 0 6px red,
-            0 0 10px #0fa,
-            0 0 45px #0fa,
-            0 0 55px #0fa,
-            0 0 70px #0fa,
-            0 0 80px #0fa;
-    }
+  0% {
+    /* Smaller blur radius */
+    text-shadow: 0 0 2px red, 0 0 4px red, 0 0 6px red, 0 0 10px #0fa,
+      0 0 45px #0fa, 0 0 55px #0fa, 0 0 70px #0fa, 0 0 80px #0fa;
+  }
 }
 
 /* Desktop */
 @media (min-width: 821px) {
-    .lyrics {
-        width: 700px;
-        /* margin: 0 auto; */
-    }
+  .lyrics {
+    width: 700px;
+    /* margin: 0 auto; */
+  }
 
-    #background-video {
-        display: block;
-        height: fit-content;
-    }
+  #background-video {
+    display: block;
+    height: fit-content;
+  }
 }
