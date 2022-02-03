@@ -19,6 +19,7 @@ const showResult = (data) => {
     searchResult.innerHTML += `
             <div class="lyrics">
                 <div class="about">
+                    <img src=${lyrics.album.cover} alt="cover">
                     <div class="singer">${lyrics.artist.name}</div>
                     -
                     <p class="title">${lyrics.title}</p>
