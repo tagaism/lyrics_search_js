@@ -46,8 +46,7 @@ searchResult.addEventListener("click", (event) => {
       .then((data) => {
 
         if(data.lyrics == undefined){
-          // alert('Lyrics does not exist. Try another one...')
-          searchResult.innerHTML = `<h3>Lyrics does not exist. Please try another one...</h3>`
+          showNotification('Lyrics does not exist. Try another one...')
         }else{ 
           const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
 
