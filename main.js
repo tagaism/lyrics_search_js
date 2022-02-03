@@ -32,6 +32,15 @@ const showResult = (data) => {
             </div>
         `;
   });
+  //adding buttons at the end;
+  const buttons = document.createElement("div");
+  // const nextBtn = document.createElement("button");
+  // const prevBtn = document.createElement("button");
+  buttons.innerHTML = `
+            <button id="next">Next</button>
+            <button id="prev" class='notVisible'>Prev</button>
+            `;
+  searchResult.appendChild(buttons);
 };
 
 searchResult.addEventListener("click", (event) => {
