@@ -26,7 +26,7 @@ const showResult = (data) => {
                 <audio controls>
                     <source src="${lyrics.preview}" type="audio/mpeg">
                 </audio>
-                <button class="get-lyrics" data-sourse="${lyrics.preview}"  data-artist="${lyrics.artist.name}" data-songtitle="${lyrics.title}" >Get Lyrics</button>
+                <button class="get-lyrics" data-bg="${lyrics.album.cover_xl}" data-sourse="${lyrics.preview}"  data-artist="${lyrics.artist.name}" data-songtitle="${lyrics.title}" >Get Lyrics</button>
             </div>
         `;
   });
@@ -40,6 +40,7 @@ searchResult.addEventListener("click", (event) => {
     const artist = targetElement.getAttribute("data-artist");
     const title = targetElement.getAttribute("data-songtitle");
     const audioSrc = targetElement.getAttribute("data-sourse");
+    const imgSrc = targetElement.getAttribute("data-bg");
 
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
@@ -48,6 +49,7 @@ searchResult.addEventListener("click", (event) => {
         if(data.lyrics == undefined){
           showNotification('Lyrics does not exist. Try another one...')
         }else{ 
+          searchResult.style.backgroundImage = `url('${imgSrc}')`
           const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
 
         searchResult.innerHTML = `
