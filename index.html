@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Lyrics Search</title>
-</head>
-<body>
-    <section class="video">
-        <video id="background-video" autoplay loop muted poster="images/static.jpeg">
-            <source src="images/crowd.mp4" type="video/mp4">
-        </video>
+  </head>
+  <body>
+    <section id="video-wrapper" class="video">
+      <video id="background-video" autoplay loop muted poster="images/static.jpeg">
+        <source src="images/crowd.mp4" type="video/mp4" />
+      </video>
     </section>
     <section class="search">
-        <div class="notification">
-        </div>
-        <h1>Lyrics Search</h1>
-        <div class="input-search">
-            <input id="user-input" type="search">
-        </div>
+      <div class="notification"></div>
+      <h1>Lyrics Search</h1>
+      <div class="input-search">
+        <input id="user-input" type="search" />
+      </div>
     </section>
-    <section class="search-result">
-    </section>
-</body>
-<script src="main.js"></script>
+    <div class="main">
+        <section class="search-result"></section>
+    </div>
+    <div>
+      <button id="next" class="notVisible">Next</button>
+      <button id="prev" class="notVisible">Prev</button>
+    </div>
+  </body>
+  <script src="main.js"></script>
 </html>
