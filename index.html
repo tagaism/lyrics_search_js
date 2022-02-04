@@ -8,14 +8,8 @@
     <title>Lyrics Search</title>
   </head>
   <body>
-    <section class="video">
-      <video
-        id="background-video"
-        autoplay
-        loop
-        muted
-        poster="images/static.jpeg"
-      >
+    <section id="video-wrapper" class="video">
+      <video id="background-video" autoplay loop muted poster="images/static.jpeg">
         <source src="images/crowd.mp4" type="video/mp4" />
       </video>
     </section>
@@ -26,10 +20,12 @@
         <input id="user-input" type="search" />
       </div>
     </section>
-    <section class="search-result"></section>
-    <div class="btns">
-      <!-- <button id="next">Next</button>
-        <button id="prev">Prev</button> -->
+    <div class="main">
+        <section class="search-result"></section>
+    </div>
+    <div>
+      <button id="next" class="notVisible">Next</button>
+      <button id="prev" class="notVisible">Prev</button>
     </div>
   </body>
   <script src="main.js"></script>

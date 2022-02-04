@@ -2,15 +2,22 @@ const userInput = document.querySelector("#user-input");
 const searchSection = document.querySelector(".search");
 const searchResult = document.querySelector(".search-result");
 const notificationSection = document.querySelector(".notification");
+const nextButton = document.querySelector("#next");
+const prevButton = document.querySelector("#prev");
+const body = document.querySelector("body");
+const video = document.querySelector("#video-wrapper");
+
 /*
  * Parse data and display them in searchResult
  */
 const showResult = (data) => {
   if (data.total === 0) {
-    showNotification("Try another one or you can write it )))");
+    showNotification("Try another one or you can write your own )))");
   } else {
     searchSection.classList.add("search-top");
     searchResult.style.display = "block";
+    video.classList.remove("video")
+    video.classList.add("video-result")
   }
 
   searchResult.innerHTML = "";
@@ -32,15 +39,15 @@ const showResult = (data) => {
             </div>
         `;
   });
-  //adding buttons at the end;
-  const buttons = document.createElement("div");
-  // const nextBtn = document.createElement("button");
-  // const prevBtn = document.createElement("button");
-  buttons.innerHTML = `
-            <button id="next">Next</button>
-            <button id="prev" class='notVisible'>Prev</button>
-            `;
-  searchResult.appendChild(buttons);
+
+  if(data.next) {
+    nextButton.classList.remove("notVisible");
+    nextButton.setAttribute("data-url", data.next)
+  }
+  if (data.prev) {
+    prevButton.classList.remove("notVisible");
+    nextButton.setAttribute("data-url", data.prev)
+  }
 };
 
 searchResult.addEventListener("click", (event) => {
@@ -113,3 +120,14 @@ userInput.addEventListener("keyup", (event) => {
     searchResult.innerHTML = "";
   }
 });
+
+/*
+ * Next button click event
+ * CORS ERROR!!!!!!!
+ */
+nextButton.addEventListener("click", (event) => {
+  const nextUrl =  event.target.dataset.url;
+  fetch(nextUrl)
+    .then((response) => response.json())
+    .then((data) => showResult(data));
+})

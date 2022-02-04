@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
-/* :root {
-    main css variables
-} */
 
 * {
   margin: 0;
@@ -23,6 +20,10 @@ body {
   height: 100vh;
 }
 
+.video-result {
+  height: 25vh;
+}
+
 #background-video {
   width: 100vw;
   height: 100vh;
@@ -36,14 +37,8 @@ body {
   z-index: -1;
 }
 
-/* .video video {
-    height: 100%;
-    overflow: hidden;
-} */
-
 .search {
   position: absolute;
-  /* z-index: 1; */
   text-align: center;
 }
 
@@ -91,15 +86,17 @@ input {
   display: none;
 }
 
+.main {
+  position: relative;
+}
+
 .search-result {
-  position: absolute;
-  /* height: 785px; */
-  top: 180px;
   background-color: white;
   opacity: 0.9;
   width: 100%;
   text-align: center;
-  /* display: block; when get search results */
+  padding: 0 20px;
+  border-radius: 20px;
   display: none;
 }
 
@@ -113,11 +110,6 @@ img {
 .lyrics {
   margin: 20px 20px 40px 20px;
   border-bottom: dotted 1px rebeccapurple;
-  /* display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  width: 400px;
-  margin: 0 auto; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
@@ -148,10 +140,6 @@ img {
   font-weight: bolder;
 }
 
-/* to not show button when not needed */
-.notVisible {
-  display: none;
-}
 /* buttons styling */
 #next,
 #prev {
@@ -172,6 +160,11 @@ img {
 #prev:hover {
   background-color: #fff;
   color: rgb(3, 121, 81);
+}
+
+/* to not show button when not needed */
+.notVisible {
+  display: none;
 }
 
 /* Neon effect */
