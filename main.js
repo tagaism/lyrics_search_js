@@ -14,6 +14,7 @@ const showResult = (data) => {
   }
 
   searchResult.innerHTML = "";
+  searchResult.style.backgroundImage = "";
 
   data.data.forEach((lyrics) => {
     searchResult.innerHTML += `
