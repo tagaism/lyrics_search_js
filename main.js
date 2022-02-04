@@ -63,11 +63,6 @@ searchResult.addEventListener("click", (event) => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.lyrics == undefined) {
-          showNotification("Lyrics does not exist. Try another one...");
-        } else {
-          const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
-
         if(data.lyrics == undefined){
           showNotification('Lyrics does not exist. Try another one...')
         }else{ 
@@ -75,14 +70,13 @@ searchResult.addEventListener("click", (event) => {
           const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
 
         searchResult.innerHTML = `
-                  <h1><strong>${artist}</strong> - ${title}</h1>
+                  <h1 class="lyricsfont"><strong>${artist}</strong> - ${title}</h1>
                   <audio controls>
                         <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
-                  <p>${lyrics}</p>`;
+                  <p class="lyricsfont">${lyrics}</p>`;
         }
-      }
-    });
+      })
   }
 });
 
