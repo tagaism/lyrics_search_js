@@ -56,6 +56,7 @@ body {
   color: #fff;
   margin-bottom: 40px;
   animation: pulsate 2.5s infinite alternate;
+
 }
 
 .search-top h1 {
@@ -218,5 +219,12 @@ img {
 
   .search-result{    
     border-radius: 20px;
+  }
+}
+
+@media (max-height: 680px) {
+  .search h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 }
