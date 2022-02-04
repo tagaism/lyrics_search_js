@@ -65,7 +65,8 @@ searchResult.addEventListener("click", (event) => {
                   </audio>
                   <p>${lyrics}</p>`;
         }
-      });
+      }
+    });
   }
 });
 
