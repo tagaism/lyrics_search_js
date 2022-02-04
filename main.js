@@ -47,6 +47,10 @@ searchResult.addEventListener("click", (event) => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
       .then((data) => {
+        if (data.lyrics == undefined) {
+          showNotification("Lyrics does not exist. Try another one...");
+        } else {
+          const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
 
         if(data.lyrics == undefined){
           showNotification('Lyrics does not exist. Try another one...')
@@ -59,8 +63,10 @@ searchResult.addEventListener("click", (event) => {
                   <audio controls>
                         <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
-                  <p>${lyrics}</p>`;}
-      });
+                  <p>${lyrics}</p>`;
+        }
+      }
+    });
   }
 });
 
@@ -94,5 +100,7 @@ userInput.addEventListener("keyup", (event) => {
     fetch(`https://api.lyrics.ovh/suggest/${searchStr}`)
       .then((response) => response.json())
       .then((data) => showResult(data));
+  } else if (event.key === "Backspace" && userInput.value === "") {
+    searchResult.innerHTML = "";
   }
 });
