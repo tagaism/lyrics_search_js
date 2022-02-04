@@ -103,6 +103,12 @@ input {
     display: none;
 }
 
+img {
+    height: 42px;
+    width: 42px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
 .lyrics {
     margin: 20px 20px 40px 20px;
     border-bottom: dotted 1px rebeccapurple;
