@@ -31,6 +31,15 @@ const showResult = (data) => {
             </div>
         `;
   });
+  //adding buttons at the end;
+  const buttons = document.createElement("div");
+  // const nextBtn = document.createElement("button");
+  // const prevBtn = document.createElement("button");
+  buttons.innerHTML = `
+              <button id="next">Next</button>
+              <button id="prev" class='notVisible'>Prev</button>
+              `;
+  searchResult.appendChild(buttons);
 };
 
 searchResult.addEventListener("click", (event) => {
@@ -45,18 +54,18 @@ searchResult.addEventListener("click", (event) => {
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
       .then((data) => {
+        if (data.lyrics == undefined) {
+          showNotification("Lyrics does not exist. Try another one...");
+        } else {
+          const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
 
-        if(data.lyrics == undefined){
-          showNotification('Lyrics does not exist. Try another one...')
-        }else{ 
-          const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g ,'<br>');
-
-        searchResult.innerHTML = `
+          searchResult.innerHTML = `
                   <h1><strong>${artist}</strong> - ${title}</h1>
                   <audio controls>
                         <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
-                  <p>${lyrics}</p>`;}
+                  <p>${lyrics}</p>`;
+        }
       });
   }
 });
