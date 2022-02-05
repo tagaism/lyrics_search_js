@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -54,8 +54,9 @@ body {
   font-size: 2.5rem;
   font-weight: lighter;
   color: #fff;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   animation: pulsate 2.5s infinite alternate;
+
 }
 
 .search-top h1 {
@@ -90,14 +91,27 @@ input {
   position: relative;
 }
 
+audio {
+    height: 30px;
+    margin: 20px;
+}
+
 .search-result {
   background-color: white;
+  color: black;
   opacity: 0.9;
   width: 100%;
   text-align: center;
   padding: 0 20px;
-  border-radius: 20px;
   display: none;
+}
+
+.lyricsfont {   
+  text-shadow: 0 0 5px white,0 0 5px white,
+  0 0 5px white,0 0 5px white,
+  0 0 5px white,0 0 5px white,
+  0 0 5px white,0 0 5px white;
+  font-weight: bolder;
 }
 
 img {
@@ -110,9 +124,9 @@ img {
 .lyrics {
   margin: 20px 20px 40px 20px;
   border-bottom: dotted 1px rebeccapurple;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
   align-items: center;
   padding: 10px 0;
   width: 400px;
@@ -189,10 +203,28 @@ img {
   .lyrics {
     width: 700px;
     /* margin: 0 auto; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
   }
 
   #background-video {
     display: block;
     height: fit-content;
+  }
+
+  .search h1{
+    margin-bottom: 60px;
+  }
+
+  .search-result{    
+    border-radius: 20px;
+  }
+}
+
+@media (max-height: 680px) {
+  .search h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
   }
 }
