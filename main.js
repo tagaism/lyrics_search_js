@@ -13,7 +13,7 @@ const video = document.querySelector("#video-wrapper");
  */
 const showResult = (data) => {
   if (data.total === 0) {
-    showNotification("Try another one or you can write your own )))");
+    showNotification("Try another one or you can write your own song )))");
     nextButton.className = "notVisible";
     prevButton.className = "notVisible";
   } else {
@@ -67,6 +67,9 @@ searchResult.addEventListener("click", (event) => {
     const title = targetElement.getAttribute("data-songtitle");
     const audioSrc = targetElement.getAttribute("data-sourse");
     const imgSrc = targetElement.getAttribute("data-bg");
+    nextButton.classList.add("notVisible");
+    prevButton.classList.add("notVisible");
+
 
     fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
       .then((response) => response.json())
@@ -83,8 +86,6 @@ searchResult.addEventListener("click", (event) => {
                         <source src="${audioSrc}" type="audio/mpeg">
                   </audio>
                   <p class="lyricsfont">${lyrics}</p>`;
-          nextButton.classList.add("notVisible");
-          prevtButton.classList.add("notVisible");
         }
     });
   }
