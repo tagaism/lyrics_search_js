@@ -128,6 +128,7 @@ userInput.addEventListener("keyup", (event) => {
 
 /*
  * CORS request error handler.
+ * refer to: https://github.com/Rob--W/cors-anywhere
  */
 function doCORSRequest(appUrl) {
   const cors_api_url = 'https://cors-anywhere.herokuapp.com/';
