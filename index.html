@@ -2,31 +2,101 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="theme-color" content="#07050a" />
+    <meta
+      name="description"
+      content="Search songs, play a preview, and pull up the lyrics — a late-night booth for the words you half remember."
+    />
     <title>Lyrics Search</title>
+    <link rel="icon" href="images/icon.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="images/icon.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section id="video-wrapper" class="video">
-      <video id="background-video" autoplay loop muted poster="images/static.jpeg">
+    <div class="stage" aria-hidden="true">
+      <video
+        id="background-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="images/static.jpeg"
+      >
         <source src="images/crowd.mp4" type="video/mp4" />
       </video>
-    </section>
-    <section class="search">
-      <div class="notification"></div>
-      <h1>Lyrics Search</h1>
-      <div class="input-search">
-        <input id="user-input" type="search" />
+      <div class="stage-wash"></div>
+      <div class="stage-spot"></div>
+      <div class="stage-grain"></div>
+      <div class="stage-vignette"></div>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#home" id="home-link">
+        <img src="images/icon.jpg" alt="" width="40" height="40" />
+        <span>
+          <span class="brand-mark">Lyrics</span>
+          <span class="brand-sub">live from the floor</span>
+        </span>
+      </a>
+      <div class="eq" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
       </div>
-    </section>
-    <div class="main">
-        <section class="search-result"></section>
-    </div>
-    <div>
-      <button id="prev" class="notVisible">Prev</button>
-      <button id="next" class="notVisible">Next</button>
-    </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <p class="kicker">Find the words. Keep the feeling.</p>
+        <h1>
+          <span class="display">Lyrics</span>
+          <span class="script">Search</span>
+        </h1>
+        <form class="search-form" id="search-form" role="search">
+          <label class="sr-only" for="user-input">Search songs or artists</label>
+          <div class="search-shell">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M20 20l-3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <input
+              id="user-input"
+              name="q"
+              type="search"
+              placeholder="Artist, song, a line…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <kbd class="hint">⏎</kbd>
+            <button type="submit" class="search-go">Find</button>
+          </div>
+        </form>
+        <div class="recent" id="recent" hidden></div>
+      </section>
+
+      <section class="results" id="results" hidden>
+        <div class="results-bar">
+          <p class="results-count" id="results-count"></p>
+        </div>
+        <div class="search-result" id="search-result"></div>
+        <nav class="pager" aria-label="Search pages">
+          <button type="button" id="prev" class="pager-btn" hidden>Previous</button>
+          <button type="button" id="next" class="pager-btn" hidden>Next</button>
+        </nav>
+      </section>
+
+      <section class="lyric-view" id="lyric-view" hidden></section>
+    </main>
+
+    <script src="main.js"></script>
   </body>
-  <script src="main.js"></script>
 </html>
