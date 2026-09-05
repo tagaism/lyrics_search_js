@@ -7,53 +7,56 @@
      _;;_.- `.' .;' _.;:._.`;;;;'.' .' :  :: .' .'  .' .' `:::'`:::'-'.;'    `;;;;'.;`  ` 
          -.;'                   '      `:::''      '                                      
 ```
-### Demo
-https://tagaism.github.io/lyrics_search_js
 
-### Requirenments
-  0. Read [this doc](https://docs.google.com/spreadsheets/d/1C16rjeyxaCjVToeryv3waL0ITYyM9zePR9v6smIq0AY/edit?pli=1#gid=52519475) before starting to work
-  1. Use ES6 notations for functions and variables.
-  2. Use arrow style function.
-  3. Use higher-order functions for arrays and objects.
+# Lyrics Search
 
-### About API
-  Read this >> [documentaion about LYRICSOVH](https://lyricsovh.docs.apiary.io/)
+Find the words. Keep the feeling.
 
-  Or ask team for help in [slack channel](https://seytech.slack.com/archives/C02V7P6018U).
+A late-night booth for the line you half remember: search a song or artist, play a preview, and pull the lyrics onto the page.
 
-### How to create pull request (PR).
-  1. Pull latest version of main:
-      ```
-      $ git checkout main
-      $ git pull origin main
-      $ git checkout -b your_name/task_title_in_short
-      // For example: "tagai/create_index_html"
-      ```
-  2. After finishin task:
-      ```
-      $ git add .
-      $ git commit -m "Briefly describe what you did."
-      $ git push origin your_name/task_title_in_short
-  3. Then got to https://github.com/tagaism/restaurant_menu/pulls.
-  4. Assign all members to code-review.
-  5. Create PR to 'main' branch.
-  6. Inform team in slack.
-  7. DO NOT MERGE! Wait for feedback.
-  8. If your PR is returned, do not create new branch or new PR.
-      Do all fixings on current branch. Then,
-      ```
-      $ git add .
-      $ git commit -m "Made fixings"
-      $ git push
-      ```
-  9. GOTO -> step 6.
-  10. Remember, _>>>> DO NOT MERGE!!<<<<_
+**Demo:** [tagaism.github.io/lyrics_search_js](https://tagaism.github.io/lyrics_search_js)
 
-### How to do a code review
-  1. Be familiar with issue.
-  2. See the code if it is clean, easy to read.
-  3. Pull the to you local machine and try to run, and check if it works properly.
-  4. Make comments of what you notice or demand correction(if neccessary).
-  5. Inform person who created PR.
-  6. Be nice to people
-      
+![The search booth](images/shot-home.jpg)
+
+## On the floor
+
+Search landed Fleetwood Mac — *The Chain*, *Silver Springs*, *Dreams*, *Landslide*, *Rhiannon*, *You Make Loving Fun*, *Gypsy*, *Gold Dust Woman*.
+
+![Fleetwood Mac setlist](images/shot-setlist.jpg)
+
+Open a cut and the words come up on a setlist sheet. Here’s *Dreams*, preview rolling:
+
+![Dreams — Fleetwood Mac](images/shot-lyrics.jpg)
+
+## Run it locally
+
+No build step. Serve the folder and open it in a browser:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then visit [http://localhost:8000](http://localhost:8000).
+
+## How it works
+
+| Piece | Source |
+| --- | --- |
+| Catalog + 30s previews | [iTunes Search API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html) |
+| Lyrics | [lyrics.ovh](https://lyricsovh.docs.apiary.io/), then [LRCLIB](https://lrclib.net) if that misses |
+
+Vanilla HTML, CSS, and ES6. Arrow functions and array methods throughout. Recent searches live in `localStorage`.
+
+### Keyboard
+
+| Key | Action |
+| --- | --- |
+| `Enter` | Search |
+| `/` | Focus the search field |
+| `Esc` | Back to the setlist from lyrics |
+
+## Original brief
+
+1. ES6 for functions and variables
+2. Arrow-style functions
+3. Higher-order functions for arrays and objects
